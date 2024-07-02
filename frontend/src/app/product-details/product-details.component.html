@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="container-header">
+    <h3>Product Details</h3>
+  </div>
+  <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+    <div *ngIf="productForm" class="container-box">
+      <input type="text" style="display: none" formControlName="id" />
+      <div class="container-body">
+        <div class="box">
+          <div class="box-text">
+            <p>Name:</p>
+          </div>
+
+          <div class="box-input">
+            <input
+              disabled
+              class="input-field"
+              type="text"
+              required
+              placeholder="name"
+              value="{{ productName }}"
+            />
+          </div>
+        </div>
+
+        <div style="display: flex">
+          <div class="box-text">
+            <p>Price:</p>
+          </div>
+
+          <div class="box-input">
+            <input
+              class="input-field"
+              type="text"
+              required
+              placeholder="price"
+              formControlName="price"
+            />
+          </div>
+        </div>
+
+        <div style="display: flex">
+          <div class="box-text">
+            <p>Description:</p>
+          </div>
+
+          <div class="box-input">
+            <input
+              class="input-field"
+              type="text"
+              placeholder="description"
+              formControlName="description"
+            />
+          </div>
+        </div>
+
+        <div style="display: flex">
+          <div class="box-text">
+            <p>upload:</p>
+          </div>
+
+          <div class="box-input">
+            <input
+              class="input-field"
+              type="file"
+              placeholder="picture"
+              (change)="readURL($event)"
+              accept="image/png, image/gif, image/jpeg"
+            />
+          </div>
+        </div>
+
+        <div class="container-image">
+          <img
+            style="width: 25%"
+            id="blah"
+            *ngIf="imageSrc"
+            [src]="imageSrc"
+            alt="your image"
+          />
+        </div>
+      </div>
+
+      <div class="container-btn">
+        <div style="display: flex; justify-content: end">
+          <div style="margin: 10px">
+            <button class="btn-save" type="submit">save</button>
+          </div>
+
+          <div style="margin: 10px">
+            <button class="btn-back" [routerLink]="['/products']">back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

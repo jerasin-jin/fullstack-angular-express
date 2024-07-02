@@ -1,0 +1,61 @@
+.container{
+    margin: 150px 35%;
+    border: 2px solid black;
+    border-radius: 14px;
+}
+
+.container-header{
+    text-align: center;
+    padding: 15px;
+}
+
+.container-body{
+    padding: 5px;
+}
+
+.box{
+    display: flex
+}
+
+.box-text{
+    width: 26%; 
+    text-align: right;
+    margin: 5px;
+    padding-top: 5px;
+}
+
+.box-input{
+    margin: 5px;
+}
+
+.input-field{
+    height: 25px;
+}
+
+.container-btn{
+    margin: 5px;
+}
+
+.btn-save{
+    padding: 6px; 
+    width: 60px;
+    background-color: aquamarine;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-back{
+    padding: 6px; 
+    width: 60px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.495);
+    cursor: pointer;
+}
+
+.form-address{
+    width: 100%;
+    height: 150px;
+}
+

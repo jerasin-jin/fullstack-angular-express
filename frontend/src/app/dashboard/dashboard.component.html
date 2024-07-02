@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="container-header">
+    <p class="text-header">Dashboard</p>
+  </div>
+
+  <div class="container-body">
+    <div class="container-card">
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">group</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>UserCount:</p>
+          <p class="card-count">{{ count?.user ?? 0 }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">storefront</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>ProductCount</p>
+          <p class="card-count">{{ count?.product ?? 0 }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">category</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>Category Count</p>
+          <p class="card-count">{{ count?.category ?? 0 }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">receipt</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>Order Total Count</p>
+          <p class="card-count">{{ count?.transaction ?? 0 }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-report">
+      <table class="container-table">
+        <tr class="container-table-header">
+          <th>OrderId</th>
+          <th>Total Amount</th>
+          <th>Total Price</th>
+          <th>Status</th>
+          <th>UpdateDate</th>
+          <th>UpdateTime</th>
+          <th>Edit</th>
+          <th>Detail</th>
+        </tr>
+        <tr *ngFor="let item of reports | async">
+          <td>{{ item.orderId }}</td>
+          <td>{{ item.totalAmount }}</td>
+          <td>{{ item.totalPrice }}</td>
+          <td>{{ item.status }}</td>
+          <td>
+            {{ item.updatedAt?.split("T")[0] ?? item.createdAt?.split("T")[0] }}
+          </td>
+          <td>
+            {{ item.updatedAt?.split("T")[1] ?? item.createdAt?.split("T")[1] }}
+          </td>
+          <td>
+            <div class="btn-edit-status">
+              <div
+                class="btn-edit-approve"
+                *ngIf="!(item.status == 'approve' || item.status == 'reject')"
+              >
+                <button
+                  type="button"
+                  class="btn-approve"
+                  (click)="approveTransaction(item)"
+                >
+                  <b>Approve</b>
+                </button>
+              </div>
+
+              <div
+                class="btn-edit-reject"
+                *ngIf="!(item.status == 'approve' || item.status == 'reject')"
+              >
+                <button
+                  type="button"
+                  class="btn-reject"
+                  (click)="rejectTransaction(item)"
+                >
+                  <b>Reject</b>
+                </button>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="margin: 5px">
+              <button
+                type="button"
+                class="btn-detail"
+                [routerLink]="['/orderDetail', 'dashboard', item.orderId]"
+              >
+                <b>Detail</b>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-pagination">
+    <ul *ngFor="let item of totalPage" class="pagination">
+      <li class="test" [ngClass]="{ test1: item === page }">
+        <button
+          [disabled]="page == item"
+          [ngClass]="{ 'dis-btn-page': item === page }"
+          class="btn-page"
+          (click)="selectPageAndSize(item, size)"
+        >
+          {{ item }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

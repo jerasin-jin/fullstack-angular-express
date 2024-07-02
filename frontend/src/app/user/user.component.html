@@ -1,0 +1,98 @@
+<div class="container">
+  <div>
+    <h1>Test State Management</h1>
+    <button (click)="increment()">Increment</button>
+
+    <div>Current Count: {{ count$ | async }}</div>
+
+    <button (click)="decrement()">Decrement</button>
+
+    <button (click)="reset()">Reset Counter</button>
+  </div>
+  <div class="container-header">
+    <h3>Edit User</h3>
+  </div>
+  <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+    <div *ngIf="userForm" class="container-box">
+      <input type="text" style="display: none" formControlName="id" />
+      <div class="container-body">
+        <div class="box">
+          <div class="box-text">
+            <p>FirstName:</p>
+          </div>
+
+          <div class="box-input">
+            <input
+              disabled
+              class="input-field"
+              type="text"
+              required
+              placeholder="name"
+              value="{{ firstName }}"
+            />
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-text">
+            <p>LastName:</p>
+          </div>
+
+          <div class="box-input">
+            <input
+              disabled
+              class="input-field"
+              type="text"
+              required
+              placeholder="name"
+              value="{{ lastName }}"
+            />
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-text">
+            <p>Email:</p>
+          </div>
+
+          <div class="box-input">
+            <input
+              disabled
+              class="input-field"
+              type="text"
+              required
+              placeholder="name"
+              value="{{ email }}"
+            />
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-text">
+            <p>Address:</p>
+          </div>
+
+          <div class="box-input">
+            <textarea
+              class="form-address"
+              placeholder="Address"
+              formControlName="address"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-btn">
+        <div style="display: flex; justify-content: end">
+          <div style="margin: 10px">
+            <button class="btn-save" type="submit">save</button>
+          </div>
+
+          <div style="margin: 10px">
+            <button class="btn-back" [routerLink]="['/products']">back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

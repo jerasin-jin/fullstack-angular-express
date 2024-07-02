@@ -1,0 +1,65 @@
+<header class="container">
+  <ul class="container-navbar">
+    <li class="navbar-text">
+      <p>Logo</p>
+    </li>
+    <li class="navbar-item">
+      <a class="btn-navbar" [routerLink]="['/']">Home</a>
+    </li>
+    <li class="navbar-item">
+      <a class="btn-navbar" [routerLink]="['/products']">Product</a>
+    </li>
+    <li class="navbar-item">
+      <a class="btn-navbar" [routerLink]="['/category']">Category</a>
+    </li>
+  </ul>
+
+  <!-- <h1>isShowSignIn$: {{ isShowSignIn$ | async }}</h1> -->
+
+  <ul class="container-navbar">
+    <li class="navbar-item-sign" *ngIf="!(isShowSignIn$ | async)">
+      <div class="container-navbar-btn">
+        <a class="btn-navbar" [routerLink]="['/signIn']">SignIn</a>
+      </div>
+    </li>
+
+    <li class="navbar-item-sign" *ngIf="!(isShowSignIn$ | async)">
+      <div class="container-navbar-btn">
+        <a class="btn-navbar" [routerLink]="['/signUp']">SignUp</a>
+      </div>
+    </li>
+
+    <li class="navbar-item" *ngIf="(isShowSignIn$ | async) && role == 'admin'">
+      <div class="container-person" [routerLink]="['/dashboard']">
+        <mat-icon class="btn-navbar-icon">dashboard</mat-icon>
+      </div>
+    </li>
+
+    <li class="navbar-item" *ngIf="isShowSignIn$ | async">
+      <div class="container-notification" [routerLink]="['/order']">
+        <mat-icon class="btn-navbar-icon">shopping_cart</mat-icon>
+        <div class="notification" *ngIf="itemSelectCount > 0">
+          {{ itemSelectCount }}
+        </div>
+      </div>
+    </li>
+
+    <li class="navbar-item" *ngIf="isShowSignIn$ | async">
+      <div class="container-person" [routerLink]="['/history', userId]">
+        <mat-icon class="btn-navbar-icon">receiptlong</mat-icon>
+      </div>
+    </li>
+
+    <li class="navbar-item" *ngIf="isShowSignIn$ | async">
+      <div class="container-person" [routerLink]="['/user', userId]">
+        <mat-icon class="btn-navbar-icon">person</mat-icon>
+      </div>
+    </li>
+
+    <li class="navbar-item" *ngIf="isShowSignIn$ | async">
+      <div class="container-logout" (click)="signOut()">
+        <mat-icon class="btn-navbar-icon">logout</mat-icon>
+      </div>
+    </li>
+  </ul>
+</header>

@@ -1,0 +1,19 @@
+<div class="container">
+  <ul>
+    <div class="container-navbar-icon" [routerLink]="['/dashboard']">
+      <mat-icon class="btn-navbar-icon">dashboard</mat-icon>
+    </div>
+    <div class="container-navbar-icon" [routerLink]="['/dashboard/users']">
+      <mat-icon class="btn-navbar-icon">group</mat-icon>
+    </div>
+    <div class="container-navbar-icon" [routerLink]="['/dashboard/categories']">
+      <mat-icon class="btn-navbar-icon">category</mat-icon>
+    </div>
+    <div class="container-navbar-icon" [routerLink]="['/dashboard/products']">
+      <mat-icon class="btn-navbar-icon">storefront</mat-icon>
+    </div>
+    <div class="container-navbar-icon" (click)="signOut()">
+      <mat-icon class="btn-navbar-icon">logout</mat-icon>
+    </div>
+  </ul>
+</div>

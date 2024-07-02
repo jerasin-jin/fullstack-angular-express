@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/docker/Dockerfile.api
+    container_name: ecommence-api
+    # ports:
+    #   - 3000:3000
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/mock:/app/mock
+    depends_on:
+       db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile.web
+    container_name: ecommence-web
+    # ports:
+    #   - 4200:4200
+    volumes:
+      - ./frontend/src:/app/src
+
+  db:
+    build:
+      context: .
+      dockerfile: backend/docker/Dockerfile.db
+    container_name: ecommence-db
+    environment:
+      MYSQL_DATABASE: api
+      MYSQL_USER: api
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: root
+    # ports:
+    #   - 3307:3306
+    volumes:
+      - ./db-data:/var/lib/mysql:z
+    # https://github.com/docker/compose/issues/9367
+    healthcheck:
+      test: "mysql -uroot -p$$MYSQL_ROOT_PASSWORD"
+      interval: 10s
+      timeout: 30s
+      retries: 3
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx.dev.Dockerfile
+    container_name: nginx
+    restart: always
+    ports:
+      - 4200:4200
+      - 3000:3000
+    depends_on:
+      - api
+
+volumes:
+  db-data:

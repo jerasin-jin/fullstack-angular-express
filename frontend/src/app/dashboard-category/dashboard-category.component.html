@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="container-header">
+    <p class="text-header">Categories</p>
+  </div>
+
+  <div class="container-body">
+    <div class="container-card">
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">summarize</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>Total:</p>
+          <p class="card-count">{{ total }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">content_paste_go</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>Active Total</p>
+          <p class="card-count">{{ countActive }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">content_paste_off</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>InActive Total</p>
+          <p class="card-count">{{ countInActive }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">warning</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>InActive Total</p>
+          <p class="card-count">1</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-btn-create">
+      <div class="card-btn-create">
+        <button type="button" class="btn-create">Create</button>
+      </div>
+    </div>
+
+    <div class="container-report">
+      <table class="container-table">
+        <tr class="container-table-header">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>UpdateDate</th>
+          <th>UpdateTime</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let item of data | async">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.status == true ? "active" : "inactive" }}</td>
+          <td>
+            {{ item.updatedAt?.split("T")[0] ?? item.createdAt?.split("T")[0] }}
+          </td>
+          <td>
+            {{ item.updatedAt?.split("T")[1] ?? item.createdAt?.split("T")[1] }}
+          </td>
+
+          <td>
+            <div style="margin: 5px">
+              <button type="button" class="btn-edit">
+                <b>Edit</b>
+              </button>
+            </div>
+
+            <div style="margin: 5px">
+              <button type="button" class="btn-delete">
+                <b>Delete</b>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-pagination">
+    <ul *ngFor="let item of totalPage" class="pagination">
+      <li class="test" [ngClass]="{ test1: item === page }">
+        <button
+          [disabled]="page == item"
+          [ngClass]="{ 'dis-btn-page': item === page }"
+          class="btn-page"
+          (click)="selectPageAndSize(item, size)"
+        >
+          {{ item }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

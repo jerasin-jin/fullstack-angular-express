@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="container-header">
+    <h1 class="header-login">Company Name</h1>
+  </div>
+
+  <div class="container-box">
+    <div class="flex-left">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="container-form">
+          <div class="header-form">
+            <h1 class="sign-in-text">Register</h1>
+          </div>
+
+          <div class="body-form">
+            <div class="form-box">
+              <div class="form-box-input">
+                <input
+                  class="form-input"
+                  type="email"
+                  placeholder="Email"
+                  formControlName="email"
+                  required
+                />
+              </div>
+
+              <div class="form-box-input">
+                <input
+                  class="form-input"
+                  type="password"
+                  placeholder="Password"
+                  formControlName="password"
+                  required
+                />
+              </div>
+
+              <div class="form-box-input">
+                <input
+                  class="form-input"
+                  type="text"
+                  placeholder="FirstName"
+                  formControlName="firstName"
+                  required
+                />
+              </div>
+
+              <div class="form-box-input">
+                <input
+                  class="form-input"
+                  type="text"
+                  placeholder="LastName"
+                  formControlName="lastName"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-box-input">
+              <input
+                class="form-description"
+                type="text"
+                placeholder="Description"
+                required
+              />
+            </div>
+
+            <!-- <div class="form-box-input">
+              <textarea class="form-address" placeholder="Address"></textarea>
+            </div> -->
+
+            <div class="form-box-input" *ngIf="showAlert">
+              <div class="alert">
+                <span
+                  class="closebtn"
+                  onclick="this.parentElement.style.display='none';"
+                  >&times;</span
+                >
+                Sign In Failed
+              </div>
+            </div>
+          </div>
+
+          <div class="container-btn">
+            <button type="submit" class="btn-sign-in">
+              <b>SignUp</b>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="flex-right">
+      <div class="container-contact">
+        <div class="header-contact">
+          <h2 style="color: white">Contact Us</h2>
+        </div>
+
+        <div class="body-contact">
+          <div class="box-container">
+            <div class="box-icon">
+              <mat-icon>location_city</mat-icon>
+            </div>
+
+            <div class="box-text">
+              <p class="contact-address">Address: xxxx</p>
+            </div>
+          </div>
+
+          <div class="box-container">
+            <div class="box-icon">
+              <mat-icon>phone</mat-icon>
+            </div>
+
+            <div class="box-text">
+              <p class="contact-address">Tel: xxxx</p>
+            </div>
+          </div>
+
+          <div class="box-container">
+            <div class="box-icon">
+              <mat-icon>mail</mat-icon>
+            </div>
+
+            <div class="box-text">
+              <p class="contact-address">Email: xxx</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

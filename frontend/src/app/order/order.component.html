@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="container-header">
+    <h2>Orders</h2>
+  </div>
+  <form>
+    <div class="container-box">
+      <div class="container-body">
+        <div class="container-body-empty" *ngIf="selectItem.length == 0">
+          <div class="body-empty">
+            <h1>No Select Item</h1>
+          </div>
+        </div>
+
+        <table class="container-table" *ngIf="selectItem.length > 0">
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+          <tr *ngFor="let product of selectItem">
+            <td>{{ product.name }}</td>
+            <td>{{ product.amount }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+              <div style="margin: 5px">
+                <button
+                  type="button"
+                  class="btn-delete"
+                  (click)="deleteSelectItem(product.productId)"
+                >
+                  <b>Delete</b>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="container-btn">
+        <div style="display: flex; justify-content: end">
+          <div style="margin: 10px" *ngIf="selectItem.length > 0">
+            <button
+              class="btn-save"
+              type="button"
+              (click)="createTransaction()"
+            >
+              Sell
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

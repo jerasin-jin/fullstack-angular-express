@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="container-header">
+    <h3>Order Details</h3>
+  </div>
+  <form>
+    <div class="container-box">
+      <div class="container-body">
+        <table class="container-table">
+          <tr class="container-table-header">
+            <th>ProductId</th>
+            <th>Product Name</th>
+            <th>Amount</th>
+            <th>Price</th>
+          </tr>
+          <tr *ngFor="let item of data">
+            <td>{{ item.productId }}</td>
+            <td>{{ item.productName }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{{ item.price }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </form>
+
+  <div style="margin: 10px; float: right">
+    <button class="btn-back" (click)="backClicked()">back</button>
+  </div>
+</div>

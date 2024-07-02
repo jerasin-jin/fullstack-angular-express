@@ -1,0 +1,68 @@
+.container {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.container-banner-header {
+  margin: 15px;
+  padding: 4px;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.header-text {
+  font-size: 40px;
+}
+
+.card-category-name {
+  text-align: center;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 0px 35px 15px 35px;
+  font-size: 22px;
+  background-color: rgba(43, 255, 0, 0.885);
+  cursor: pointer;
+}
+
+.container-image {
+  margin: 35px 15px 15px 15px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  grid-column-gap: 15px;
+}
+
+.container-pagination {
+  padding: 20px;
+  float: right;
+  display: flex;
+}
+
+.pagination {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+  border: 3px solid black;
+}
+
+.pagination-btn :hover {
+  background-color: red;
+}
+
+.disable-pagination-btn {
+  pointer-events: none;
+}
+
+.btn-page {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dis-btn-page {
+  cursor: default;
+}

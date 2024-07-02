@@ -1,0 +1,104 @@
+input[type="text"] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="img"] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0px;
+  padding: 70px 35%;
+  /* background-color: red; */
+}
+
+.main {
+  /* background-color: blueviolet; */
+  border: 2px solid black;
+  padding: 10px;
+}
+
+/* .container-header {
+  background-color: green;
+} */
+
+.container-body {
+}
+
+.container-label {
+  margin: 5px 0px;
+}
+
+.container-dropdown {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.container-radio {
+  display: flex;
+}
+
+.radio-select {
+  width: 50%;
+  margin-right: 5px;
+}
+
+/* .input-form {
+  width: 100%;
+} */
+
+.container-btn {
+  margin-top: 15px;
+  display: flex;
+  justify-content: end;
+}
+
+.btn-create {
+  padding: 6px;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(0, 118, 245);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2px;
+  color: whitesmoke;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.btn-back {
+  padding: 6px;
+  width: 80px;
+  height: 40px;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2px;
+  color: whitesmoke;
+  font-size: medium;
+  font-weight: bold;
+}

@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+}
+
+.container-header {
+  margin: 16px 16px 16px 36px;
+}
+
+.text-header {
+  font-size: 30px;
+  font-weight: 100px;
+}
+
+.container-body {
+  margin: 15px;
+}
+
+.container-card {
+  display: flex;
+}
+
+.card {
+  width: 25%;
+  border: 3px solid black;
+  border-radius: 30px;
+  display: flex;
+  text-align: center;
+  height: 100px;
+  margin: 0 16px;
+}
+
+.card-icon {
+  width: 30%;
+  margin: 15px;
+}
+
+.card-text {
+  width: 70%;
+  margin: 15px;
+}
+
+.btn-navbar-icon {
+  font-size: 60px;
+  height: 100px;
+  width: 100%;
+}
+
+.container-report {
+  margin-top: 35px;
+}
+
+table {
+  width: 100%;
+}
+
+table th:first-child {
+  border-radius: 10px 0 0 0;
+}
+
+table th:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+th {
+  background-color: rgb(0, 132, 255);
+}
+
+table {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+}
+
+tr {
+  height: 50px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: coral;
+}
+
+td {
+  text-align: center;
+  border: 1px solid black;
+  width: 10%;
+}
+
+.btn-detail {
+  padding: 6px;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(0, 118, 245);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-edit-status {
+  display: flex;
+  text-align: center;
+}
+
+.btn-edit-approve {
+  width: 50%;
+}
+
+.btn-approve {
+  padding: 10px;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(0, 255, 247);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-edit-reject {
+  width: 50%;
+}
+
+.btn-reject {
+  padding: 6px;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-count {
+  padding: 10px;
+  font-size: 35px;
+}
+
+.container-pagination {
+  padding: 20px;
+  float: right;
+  display: flex;
+}
+
+.pagination {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+  border: 3px solid black;
+}
+
+.pagination-btn :hover {
+  background-color: red;
+}
+
+.disable-pagination-btn {
+  pointer-events: none;
+}
+
+.btn-page {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dis-btn-page {
+  cursor: default;
+}

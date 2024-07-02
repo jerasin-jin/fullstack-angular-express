@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="container-banner-header">
+    <div class="card-header"><p class="header-text">Categories</p></div>
+
+    <div class="container-image">
+      <div class="card-image" *ngFor="let category of categories">
+        <div class="card-category-name">
+          <p [routerLink]="['/products', category.id]">
+            {{ category.name }}
+          </p>
+        </div>
+        <img
+          style="width: 300px; height: 250px"
+          src="{{ category.img }}"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="container-pagination">
+      <ul *ngFor="let item of totalPage" class="pagination">
+        <li class="test" [ngClass]="{ test1: item === page }">
+          <button
+            [disabled]="page == item"
+            [ngClass]="{ 'dis-btn-page': item === page }"
+            class="btn-page"
+            (click)="selectPageAndSize(item, size)"
+          >
+            {{ item }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

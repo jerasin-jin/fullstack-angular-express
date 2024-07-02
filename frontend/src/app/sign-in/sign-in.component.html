@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="container-header">
+    <h1 class="header-login">Company Name</h1>
+  </div>
+  <div class="container-box">
+    <div class="flex-left">
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <div class="container-form">
+          <div class="header-form">
+            <h1 class="sign-in-text">Login</h1>
+          </div>
+
+          <div class="body-form">
+            <div class="form-box">
+              <div class="form-box-input">
+                <p>Email</p>
+              </div>
+
+              <div class="form-box-input">
+                <input
+                  class="form-input"
+                  type="email"
+                  formControlName="email"
+                />
+              </div>
+
+              <div class="form-box-input">
+                <p>Password</p>
+              </div>
+              <div class="form-box-input">
+                <input
+                  class="form-input"
+                  type="password"
+                  formControlName="password"
+                />
+              </div>
+
+              <div class="form-box-input" *ngIf="showAlert">
+                <div class="alert">
+                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                  Sign In Failed
+                </div>
+              </div>
+
+              <div class="container-btn">
+                <button
+                  type="submit"
+                  class="btn-sign-in"
+                  [disabled]="!signInForm.valid"
+                >
+                  <b>SignIn</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="flex-right">
+      <div class="container-contact">
+        <div class="header-contact">
+          <h2 style="color: white">Contact Us</h2>
+        </div>
+
+        <div class="body-contact">
+          <div class="box-container">
+            <div class="box-icon">
+              <mat-icon>location_city</mat-icon>
+            </div>
+
+            <div class="box-text">
+              <p class="contact-address">Address: xxxx</p>
+            </div>
+          </div>
+
+          <div class="box-container">
+            <div class="box-icon">
+              <mat-icon>phone</mat-icon>
+            </div>
+
+            <div class="box-text">
+              <p class="contact-address">Tel: xxxx</p>
+            </div>
+          </div>
+
+          <div class="box-container">
+            <div class="box-icon">
+              <mat-icon>mail</mat-icon>
+            </div>
+
+            <div class="box-text">
+              <p class="contact-address">Email: xxx</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

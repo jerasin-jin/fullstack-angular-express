@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="container-header">
+    <p class="text-header">Users</p>
+  </div>
+
+  <div class="container-body">
+    <div class="container-card">
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">group</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>Active Total:</p>
+          <p class="card-count">{{ countStatusActive | async }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">no_accounts</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>InActive Total</p>
+          <p class="card-count">{{ countStatusInActive | async }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">badge</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>Role Admin Total</p>
+          <p class="card-count">{{ countRoleAdmin | async }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <mat-icon class="btn-navbar-icon">person</mat-icon>
+        </div>
+        <div class="card-text">
+          <p>Role User Total</p>
+          <p class="card-count">{{ countRoleUser | async }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-btn-create">
+      <div class="card-btn-create">
+        <button type="button" class="btn-create">Create</button>
+      </div>
+    </div>
+
+    <div class="container-report">
+      <table class="container-table">
+        <tr class="container-table-header">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>UpdateDate</th>
+          <th>UpdateTime</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let item of data | async">
+          <td>{{ item.id }}</td>
+          <td>{{ item.matchName }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.role }}</td>
+          <td>{{ item.status == true ? "active" : "inactive" }}</td>
+          <td>
+            {{ item.updatedAt?.split("T")[0] ?? item.createdAt?.split("T")[0] }}
+          </td>
+          <td>
+            {{ item.updatedAt?.split("T")[1] ?? item.createdAt?.split("T")[1] }}
+          </td>
+
+          <td>
+            <div style="margin: 5px">
+              <button type="button" class="btn-edit">
+                <b>Edit</b>
+              </button>
+            </div>
+
+            <div style="margin: 5px">
+              <button type="button" class="btn-delete">
+                <b>Delete</b>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-pagination">
+    <ul *ngFor="let item of totalPage" class="pagination">
+      <li class="test" [ngClass]="{ test1: item === page }">
+        <button
+          [disabled]="page == item"
+          [ngClass]="{ 'dis-btn-page': item === page }"
+          class="btn-page"
+          (click)="selectPageAndSize(item, size)"
+        >
+          {{ item }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

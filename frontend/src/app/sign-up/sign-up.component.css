@@ -1,0 +1,168 @@
+.container {
+  margin: 0 auto;
+  padding: 70px 25%;
+  font-family: Helvetica;
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 5px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+.container-header {
+  margin: 20px 0 60px 0;
+  font-size: large;
+}
+
+.header-login {
+  text-align: center;
+}
+
+.container-box {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.flex-left {
+  width: 60%;
+  padding: 10px;
+}
+
+.flex-right {
+  width: 40%;
+  background-color: #0af;
+  padding: 20px;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  border-radius: 10px;
+  box-shadow: none #ccc 5px 5px 5px;
+}
+
+.header-form {
+  /* text-align: center; */
+  margin-bottom: 10px;
+  padding: 0px 10px 0px 10px;
+  /* background-color: red; */
+}
+
+.sign-in-text {
+  margin: 10px;
+}
+
+.body-form {
+  /* background-color: red; */
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+.form-box {
+  width: 100%;
+  /* display: flex;
+    justify-content: space-between; */
+}
+
+.form-box-input {
+  display: inline;
+  /* background-color: red; */
+}
+
+.form-input {
+  padding: 5px;
+  margin: 5px;
+  width: 95%;
+  height: 25px;
+}
+
+.form-description {
+  padding: 5px;
+  margin: 5px;
+  width: 95%;
+  height: 25px;
+}
+
+.form-address {
+  padding: 5px;
+  margin: 5px;
+  width: 95%;
+  height: 150px;
+}
+
+.container-btn {
+  /* background-color: red; */
+  padding-left: 10px;
+}
+
+.btn-sign-in {
+  background-color: #0af;
+  padding: 10px;
+  margin: 0px 10px 10px 10px;
+  width: 20%;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.container-contact {
+  width: 100%;
+  height: 100%;
+}
+
+.header-contact {
+  padding: 10px;
+  /* border: 1px solid red; */
+  text-align: center;
+}
+
+.body-contact {
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.box-container {
+  display: flex;
+  margin: 5px;
+}
+
+.box-icon {
+  display: block;
+  width: 30%;
+  text-align: center;
+}
+
+.box-text {
+  width: 70%;
+  text-align: left;
+}
+
+.box-content {
+  width: 100%;
+}
+
+.contact-address {
+  color: white;
+  font-size: 22px;
+}

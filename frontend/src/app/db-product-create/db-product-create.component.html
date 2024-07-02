@@ -1,0 +1,7 @@
+<app-item-form
+  header="Product"
+  *ngIf="loadProductItemForm == true"
+  [eleInput]="productItemForm"
+  [form]="productForm"
+  (childFormSubmitted)="onChildFormSubmitted($event)"
+></app-item-form>

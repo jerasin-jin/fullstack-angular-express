@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="container-header">
+    <h2 style="font-size: 40px">History</h2>
+  </div>
+
+  <div class="container-box">
+    <div class="container-body">
+      <table class="container-table">
+        <tr class="container-table-header">
+          <th>OrderId</th>
+          <th>Total Amount</th>
+          <th>Total Price</th>
+          <th>Status</th>
+        </tr>
+        <tr *ngFor="let item of data">
+          <td>{{ item.orderId }}</td>
+          <td>{{ item.totalAmount }}</td>
+          <td>{{ item.totalPrice }}</td>
+          <td>
+            <div style="margin: 5px">
+              <button
+                type="button"
+                class="btn-detail"
+                [routerLink]="['/orderDetail', item.orderId]"
+              >
+                <b>Detail</b>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

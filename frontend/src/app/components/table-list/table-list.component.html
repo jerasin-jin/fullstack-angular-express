@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="container-body">
+    <div class="container-report">
+      <table class="container-table">
+        <tr class="container-table-header">
+          <th *ngFor="let item of thTable">{{ item }}</th>
+        </tr>
+        <tr *ngFor="let item of data | async">
+          <td>{{ item }}</td>
+
+          <td>
+            {{ item.updatedAt?.split("T")[0] ?? item.createdAt?.split("T")[0] }}
+          </td>
+          <td>
+            {{ item.updatedAt?.split("T")[1] ?? item.createdAt?.split("T")[1] }}
+          </td>
+          <td>
+            <div class="btn-edit-status" *ngIf="thTable.includes('Edit')">
+              <div
+                class="btn-edit-approve"
+                *ngIf="!(item.status == 'approve' || item.status == 'reject')"
+              >
+                <button type="button" class="btn-approve">
+                  <b>Approve</b>
+                </button>
+              </div>
+
+              <div
+                class="btn-edit-reject"
+                *ngIf="!(item.status == 'approve' || item.status == 'reject')"
+              >
+                <button type="button" class="btn-reject">
+                  <b>Reject</b>
+                </button>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="margin: 5px">
+              <button
+                type="button"
+                class="btn-detail"
+                [routerLink]="['/orderDetail', item.orderId]"
+              >
+                <b>Detail</b>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container-pagination">
+    <ul *ngFor="let item of totalPage" class="pagination">
+      <li class="test" [ngClass]="{ test1: item === page }">
+        <button
+          [disabled]="page == item"
+          [ngClass]="{ 'dis-btn-page': item === page }"
+          class="btn-page"
+          (click)="selectPageAndSize(item, size)"
+        >
+          {{ item }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

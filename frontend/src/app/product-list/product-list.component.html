@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="product-list">
+    <div *ngFor="let product of products" class="container-box">
+      <div class="box">
+        <div class="container-box-name">
+          <a
+            class="btn-product"
+            [title]="product.name + ' details'"
+            [routerLink]="['/product-detail', product.id]"
+          >
+            {{ product.name }}
+          </a>
+        </div>
+
+        <div class="container-box-image">
+          <img
+            style="width: 300px; height: 250px"
+            src="{{ product.img }}"
+            alt=""
+          />
+        </div>
+
+        <div class="container-body">
+          <div class="container-box-price">
+            <div class="box-price">
+              <div class="box-text">
+                <p>Price:</p>
+              </div>
+              <div class="box-unit">
+                <p>{{ product.price }}</p>
+              </div>
+            </div>
+
+            <div class="box-available">
+              <div class="box-text">
+                <p>Available:</p>
+              </div>
+
+              <div class="box-unit">
+                <p>{{ product.available ?? 0 }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-btn-box">
+            <!-- <div *ngIf="role == 'admin'">
+              <button
+                class="btn-edit"
+                [routerLink]="['/product-detail', product.id]"
+              >
+                Edit
+              </button>
+            </div> -->
+
+            <div class="container-btn-sell">
+              <button class="btn-sell" (click)="setShoppingCar(product)">
+                Add Car
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-pagination">
+    <ul *ngFor="let item of createRange(totalPage)" class="pagination">
+      <li
+        class="pagination-btn"
+        [ngClass]="{ 'disable-pagination-btn': item === selectPage }"
+      >
+        <button
+          [disabled]="selectPage == item"
+          [ngClass]="{ 'dis-btn-page': item === selectPage }"
+          class="btn-page"
+          (click)="selectPageAndSize(item, 5)"
+        >
+          {{ item }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
